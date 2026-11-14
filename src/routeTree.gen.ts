@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ExperienceRouteImport } from './routes/experience'
+import { Route as GalerieRouteImport } from './routes/galerie'
+import { Route as HistoireRouteImport } from './routes/histoire'
+import { Route as VideosRouteImport } from './routes/videos'
+import { Route as AppartementsIndexRouteImport } from './routes/appartements/index'
+import { Route as AppartementsSlugRouteImport } from './routes/appartements/$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExperienceRoute = ExperienceRouteImport.update({
+  id: '/experience',
+  path: '/experience',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalerieRoute = GalerieRouteImport.update({
+  id: '/galerie',
+  path: '/galerie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoireRoute = HistoireRouteImport.update({
+  id: '/histoire',
+  path: '/histoire',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VideosRoute = VideosRouteImport.update({
+  id: '/videos',
+  path: '/videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppartementsIndexRoute = AppartementsIndexRouteImport.update({
+  id: '/appartements/',
+  path: '/appartements/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppartementsSlugRoute = AppartementsSlugRouteImport.update({
+  id: '/appartements/$slug',
+  path: '/appartements/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/experience': typeof ExperienceRoute
+  '/galerie': typeof GalerieRoute
+  '/histoire': typeof HistoireRoute
+  '/videos': typeof VideosRoute
+  '/appartements/$slug': typeof AppartementsSlugRoute
+  '/appartements/': typeof AppartementsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/experience': typeof ExperienceRoute
+  '/galerie': typeof GalerieRoute
+  '/histoire': typeof HistoireRoute
+  '/videos': typeof VideosRoute
+  '/appartements/$slug': typeof AppartementsSlugRoute
+  '/appartements': typeof AppartementsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/experience': typeof ExperienceRoute
+  '/galerie': typeof GalerieRoute
+  '/histoire': typeof HistoireRoute
+  '/videos': typeof VideosRoute
+  '/appartements/$slug': typeof AppartementsSlugRoute
+  '/appartements/': typeof AppartementsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/experience'
+    | '/galerie'
+    | '/histoire'
+    | '/videos'
+    | '/appartements/$slug'
+    | '/appartements/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contact'
+    | '/experience'
+    | '/galerie'
+    | '/histoire'
+    | '/videos'
+    | '/appartements/$slug'
+    | '/appartements'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/experience'
+    | '/galerie'
+    | '/histoire'
+    | '/videos'
+    | '/appartements/$slug'
+    | '/appartements/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  ExperienceRoute: typeof ExperienceRoute
+  GalerieRoute: typeof GalerieRoute
+  HistoireRoute: typeof HistoireRoute
+  VideosRoute: typeof VideosRoute
+  AppartementsSlugRoute: typeof AppartementsSlugRoute
+  AppartementsIndexRoute: typeof AppartementsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/experience': {
+      id: '/experience'
+      path: '/experience'
+      fullPath: '/experience'
+      preLoaderRoute: typeof ExperienceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/galerie': {
+      id: '/galerie'
+      path: '/galerie'
+      fullPath: '/galerie'
+      preLoaderRoute: typeof GalerieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/histoire': {
+      id: '/histoire'
+      path: '/histoire'
+      fullPath: '/histoire'
+      preLoaderRoute: typeof HistoireRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/videos': {
+      id: '/videos'
+      path: '/videos'
+      fullPath: '/videos'
+      preLoaderRoute: typeof VideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/appartements/': {
+      id: '/appartements/'
+      path: '/appartements'
+      fullPath: '/appartements/'
+      preLoaderRoute: typeof AppartementsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/appartements/$slug': {
+      id: '/appartements/$slug'
+      path: '/appartements/$slug'
+      fullPath: '/appartements/$slug'
+      preLoaderRoute: typeof AppartementsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  ExperienceRoute: ExperienceRoute,
+  GalerieRoute: GalerieRoute,
+  HistoireRoute: HistoireRoute,
+  VideosRoute: VideosRoute,
+  AppartementsSlugRoute: AppartementsSlugRoute,
+  AppartementsIndexRoute: AppartementsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
