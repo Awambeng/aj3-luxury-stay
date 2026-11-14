@@ -176,7 +176,7 @@ function Index() {
       {/* Hero */}
       <section id="accueil" className="relative flex min-h-[100svh] items-end overflow-hidden">
         <img src={hero} alt="Salon d'appartement haut standing (visuel illustratif)" width={1600} height={1024} fetchPriority="high" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-overlay/85 via-overlay/40 to-overlay/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-overlay/85 via-overlay/35 to-overlay/65" />
         <div className="relative mx-auto w-full max-w-7xl px-6 pb-20 pt-40 text-primary-foreground md:px-12 md:pb-28">
           <p className="eyebrow animate-rise">{t.eyebrow}</p>
           <h1 className="mt-6 max-w-4xl font-display text-5xl font-normal leading-[1.02] animate-rise [animation-delay:120ms] sm:text-6xl md:text-8xl">{t.h1}</h1>
